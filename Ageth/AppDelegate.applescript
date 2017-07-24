@@ -8,21 +8,13 @@
 
 script AppDelegate
 	property parent : class "NSObject"
-    
-    
-    property theSyncModePopup : missing value
-    
-    on startButton_(sender)
-        tell application "Terminal"
-            do script "cd ~/Library/Application\\ Support/Ethereum\\ Wallet/binaries/Geth/unpacked; ./geth --syncmode light"
-        end tell
-    end startButton_
 	
 	-- IBOutlets
 	property theWindow : missing value
 	
 	on applicationWillFinishLaunching_(aNotification)
-		-- Insert code here to initialize your application before any files are opened 
+		-- Insert code here to initialize your application before any files are opened
+         set theWalletPath to POSIX path of "~/Library/Application\\ Support/Ethereum\\ Wallet"
 	end applicationWillFinishLaunching_
 	
 	on applicationShouldTerminate_(sender)
@@ -30,5 +22,41 @@ script AppDelegate
 		return current application's NSTerminateNow
 	end applicationShouldTerminate_
 
+
+
+    property theSyncModePopup : missing value
     
+    property theWalletPathWidget : missing value
+    
+    on startButton_(sender)
+        --tell application "Terminal"
+        --    do script "cd ~/Library/Application\\ Support/Ethereum\\ Wallet/binaries/Geth/unpacked; ./geth --syncmode light"
+        --end tell
+        
+        
+        
+        --log thePath
+        
+        --theWalletPathWidget's setURL:"/Users"
+        
+        --theWalletPathWidget's setURL:"/Users/sk/Desktop"
+        
+        
+        --set thePath to "/Users/sk/Desktop"
+        
+        --set thePath to "Macintosh HD:Users:sk:Desktop:"
+        --set thePath to "/Users/sk/Desktop/"
+        set thePath to path of (choose folder)
+        
+        log thePath
+        
+        set theNSURL to current application's class "NSURL"'s fileURLWithPath_(thePath)
+        
+        
+        theWalletPathWidget's setURL:theNSURL
+        
+        
+        --tell application "Terminal" to activate
+    end startButton_
+
 end script
