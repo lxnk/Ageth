@@ -8,6 +8,15 @@
 
 script AppDelegate
 	property parent : class "NSObject"
+    
+    
+    property theSyncModePopup : missing value
+    
+    on startButton_(sender)
+        tell application "Terminal"
+            do script "cd ~/Library/Application\\ Support/Ethereum\\ Wallet/binaries/Geth/unpacked; ./geth --syncmode light"
+        end tell
+    end startButton_
 	
 	-- IBOutlets
 	property theWindow : missing value
@@ -20,5 +29,6 @@ script AppDelegate
 		-- Insert code here to do any housekeeping before your application quits 
 		return current application's NSTerminateNow
 	end applicationShouldTerminate_
-	
+
+    
 end script
