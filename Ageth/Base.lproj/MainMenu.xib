@@ -15,7 +15,7 @@
         <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
                 <outlet property="theSyncModePopup" destination="Bqk-jJ-pWs" id="Coh-Kc-beV"/>
-                <outlet property="theWalletPathWidget" destination="Mpr-vf-OFf" id="eMy-3h-Pcr"/>
+                <outlet property="theWalletPathWidget" destination="xk2-Um-QaM" id="8jh-Hx-TUZ"/>
                 <outlet property="theWindow" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
@@ -33,7 +33,11 @@
                                 </connections>
                             </menuItem>
                             <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                            <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
+                            <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
+                                <connections>
+                                    <action selector="orderFront:" target="M91-GU-9m1" id="bgd-4l-XUg"/>
+                                </connections>
+                            </menuItem>
                             <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                             <menuItem title="Services" id="NMo-om-nkz">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -672,14 +676,14 @@
         <window title="Ageth" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="378" height="295"/>
+            <rect key="contentRect" x="335" y="390" width="288" height="90"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="378" height="295"/>
+                <rect key="frame" x="0.0" y="0.0" width="288" height="90"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bqk-jJ-pWs" userLabel="SyncMode Popup Button">
-                        <rect key="frame" x="18" y="226" width="121" height="26"/>
+                        <rect key="frame" x="18" y="21" width="121" height="26"/>
                         <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" inset="2" id="JfT-fF-BGs">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
@@ -692,16 +696,8 @@
                             </menu>
                         </popUpButtonCell>
                     </popUpButton>
-                    <pathControl verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mpr-vf-OFf" userLabel="Wallet Path Control Widget">
-                        <rect key="frame" x="20" y="192" width="213" height="22"/>
-                        <pathCell key="cell" selectable="YES" editable="YES" alignment="left" id="2be-LO-Imw">
-                            <font key="font" metaFont="system"/>
-                            <url key="url" string="file://localhost/Applications/"/>
-                            <color key="backgroundColor" red="0.89803921568627454" green="0.92549019607843142" blue="0.97254901960784312" alpha="1" colorSpace="deviceRGB"/>
-                        </pathCell>
-                    </pathControl>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yvm-sn-3Lw">
-                        <rect key="frame" x="18" y="258" width="217" height="17"/>
+                        <rect key="frame" x="18" y="53" width="217" height="17"/>
                         <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Choose the syncronisation mode:" id="sOg-26-FHh">
                             <font key="font" metaFont="system"/>
                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -709,14 +705,14 @@
                         </textFieldCell>
                     </textField>
                     <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pM7-gv-b7J" userLabel="SyncMode Help Button">
-                        <rect key="frame" x="142" y="226" width="25" height="25"/>
+                        <rect key="frame" x="142" y="21" width="25" height="25"/>
                         <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hr0-Zc-8JI">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
                         </buttonCell>
                     </button>
                     <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="K0D-1R-KSM" userLabel="Start Geth Button">
-                        <rect key="frame" x="171" y="222" width="103" height="32"/>
+                        <rect key="frame" x="171" y="17" width="103" height="32"/>
                         <buttonCell key="cell" type="push" title="Start Geth" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4zv-cc-5e2">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="system"/>
@@ -727,7 +723,31 @@
                     </button>
                 </subviews>
             </view>
-            <point key="canvasLocation" x="43" y="68.5"/>
+            <point key="canvasLocation" x="-2" y="-34"/>
+        </window>
+        <window title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="M91-GU-9m1" userLabel="Preferences">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="335" y="390" width="612" height="142"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1280" height="778"/>
+            <view key="contentView" id="JIS-1Q-eng">
+                <rect key="frame" x="0.0" y="0.0" width="612" height="142"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <pathControl verticalHuggingPriority="750" fixedFrame="YES" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xk2-Um-QaM" userLabel="Wallet Path Control Widget">
+                        <rect key="frame" x="20" y="100" width="572" height="22"/>
+                        <pathCell key="cell" selectable="YES" editable="YES" alignment="left" id="vw1-6J-UQT">
+                            <font key="font" metaFont="system"/>
+                            <url key="url" string="file://localhost/Applications/"/>
+                            <color key="backgroundColor" red="0.8980392157" green="0.92549019610000005" blue="0.97254901959999995" alpha="1" colorSpace="deviceRGB"/>
+                        </pathCell>
+                        <connections>
+                            <action selector="setWalletPath:" target="Voe-Tx-rLC" id="hk3-Cx-tdD"/>
+                        </connections>
+                    </pathControl>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="160" y="164"/>
         </window>
     </objects>
 </document>

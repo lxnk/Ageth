@@ -12,9 +12,20 @@ script AppDelegate
 	-- IBOutlets
 	property theWindow : missing value
 	
+    
+    property theSyncModePopup : missing value
+    
+    property theWalletPathWidget : missing value
+    
+    
+    
 	on applicationWillFinishLaunching_(aNotification)
 		-- Insert code here to initialize your application before any files are opened
-         set theWalletPath to POSIX path of "~/Library/Application\\ Support/Ethereum\\ Wallet"
+        
+         set theWalletPath to POSIX path of "/Users/sk/Library/Application Support/Ethereum Wallet"
+         set theNSURL to current application's class "NSURL"'s fileURLWithPath_(theWalletPath)
+         theWalletPathWidget's setURL:theNSURL
+         
 	end applicationWillFinishLaunching_
 	
 	on applicationShouldTerminate_(sender)
@@ -24,11 +35,38 @@ script AppDelegate
 
 
 
-    property theSyncModePopup : missing value
-    
-    property theWalletPathWidget : missing value
+
     
     on startButton_(sender)
+        --log thePath
+        
+        --theWalletPathWidget's setURL:"/Users"
+        
+        --theWalletPathWidget's setURL:"/Users/sk/Desktop"
+        
+        
+        --set thePath to "/Users/sk/Desktop"
+        
+        --set thePath to "Macintosh HD:Users:sk:Desktop:"
+        --set thePath to "/Users/sk/Desktop/"
+        --set thePath to POSIX path of (choose folder)
+        
+        --log thePath
+        
+        --set theNSURL to current application's class "NSURL"'s fileURLWithPath_(thePath)
+        
+        
+        --theWalletPathWidget's setURL:theNSURL
+        
+        tell application "Terminal"
+            do script "cd ~/Library/Application\\ Support/Ethereum\\ Wallet/binaries/Geth/unpacked; ./geth --syncmode light"
+        end tell
+        
+        tell application "Terminal" to activate
+        
+    end startButton_
+    
+    on setWalletPath_(sender)
         --tell application "Terminal"
         --    do script "cd ~/Library/Application\\ Support/Ethereum\\ Wallet/binaries/Geth/unpacked; ./geth --syncmode light"
         --end tell
@@ -46,9 +84,9 @@ script AppDelegate
         
         --set thePath to "Macintosh HD:Users:sk:Desktop:"
         --set thePath to "/Users/sk/Desktop/"
-        set thePath to path of (choose folder)
+        set thePath to POSIX path of (choose folder)
         
-        log thePath
+        --log thePath
         
         set theNSURL to current application's class "NSURL"'s fileURLWithPath_(thePath)
         
@@ -57,6 +95,6 @@ script AppDelegate
         
         
         --tell application "Terminal" to activate
-    end startButton_
+    end setWalletPath_
 
 end script
