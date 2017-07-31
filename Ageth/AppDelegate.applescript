@@ -19,6 +19,7 @@ script AppDelegate
     
     property theSyncMode : 2
     
+    property theWPath : "/Users/sk/Library/Application Support/Ethereum Wallet"
     
 	on applicationWillFinishLaunching_(aNotification)
 		-- Insert code here to initialize your application before any files are opened

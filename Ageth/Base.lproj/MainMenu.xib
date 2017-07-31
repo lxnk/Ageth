@@ -749,6 +749,7 @@
                         </pathCell>
                         <connections>
                             <action selector="setWalletPath:" target="Voe-Tx-rLC" id="hk3-Cx-tdD"/>
+                            <binding destination="Voe-Tx-rLC" name="value" keyPath="theWPath" id="QtQ-Mb-v5F"/>
                         </connections>
                     </pathControl>
                 </subviews>
