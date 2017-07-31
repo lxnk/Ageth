@@ -17,6 +17,7 @@ script AppDelegate
     
     property theWalletPathWidget : missing value
     
+    property theSyncMode : 2
     
     
 	on applicationWillFinishLaunching_(aNotification)
@@ -52,17 +53,18 @@ script AppDelegate
         --set thePath to POSIX path of (choose folder)
         
         --log thePath
+          log theSyncMode
         
         --set theNSURL to current application's class "NSURL"'s fileURLWithPath_(thePath)
         
         
         --theWalletPathWidget's setURL:theNSURL
         
-        tell application "Terminal"
-            do script "cd ~/Library/Application\\ Support/Ethereum\\ Wallet/binaries/Geth/unpacked; ./geth --syncmode light"
-        end tell
+        --tell application "Terminal"
+        --    do script "cd ~/Library/Application\\ Support/Ethereum\\ Wallet/binaries/Geth/unpacked; ./geth --syncmode light"
+        --end tell
         
-        tell application "Terminal" to activate
+        --tell application "Terminal" to activate
         
     end startButton_
     

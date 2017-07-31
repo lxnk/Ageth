@@ -684,17 +684,23 @@
                 <subviews>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bqk-jJ-pWs" userLabel="SyncMode Popup Button">
                         <rect key="frame" x="18" y="21" width="121" height="26"/>
-                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" inset="2" id="JfT-fF-BGs">
+                        <popUpButtonCell key="cell" type="push" title="Full" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" selectedItem="y64-vu-veq" id="JfT-fF-BGs">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" title="Menu Title" id="3d5-y7-LLX">
                                 <items>
-                                    <menuItem title="Full" id="y64-vu-veq" userLabel="Full"/>
+                                    <menuItem title="Full" state="on" id="y64-vu-veq" userLabel="Full"/>
                                     <menuItem title="Fast" id="GFs-6g-kbN" userLabel="Fast"/>
                                     <menuItem title="Light" id="ozJ-eP-YBb" userLabel="Light"/>
                                 </items>
                             </menu>
+                            <connections>
+                                <binding destination="rFc-wE-CVk" name="selectedIndex" keyPath="values.theSyncMode" id="qvh-AT-Rqm"/>
+                            </connections>
                         </popUpButtonCell>
+                        <connections>
+                            <binding destination="Voe-Tx-rLC" name="selectedIndex" keyPath="theSyncMode" id="Dh2-1N-rOE"/>
+                        </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yvm-sn-3Lw">
                         <rect key="frame" x="18" y="53" width="217" height="17"/>
@@ -739,7 +745,7 @@
                         <pathCell key="cell" selectable="YES" editable="YES" alignment="left" id="vw1-6J-UQT">
                             <font key="font" metaFont="system"/>
                             <url key="url" string="file://localhost/Applications/"/>
-                            <color key="backgroundColor" red="0.8980392157" green="0.92549019610000005" blue="0.97254901959999995" alpha="1" colorSpace="deviceRGB"/>
+                            <color key="backgroundColor" red="0.89803921568627454" green="0.92549019607843142" blue="0.97254901960784312" alpha="1" colorSpace="deviceRGB"/>
                         </pathCell>
                         <connections>
                             <action selector="setWalletPath:" target="Voe-Tx-rLC" id="hk3-Cx-tdD"/>
@@ -749,5 +755,6 @@
             </view>
             <point key="canvasLocation" x="160" y="164"/>
         </window>
+        <userDefaultsController representsSharedInstance="YES" id="rFc-wE-CVk"/>
     </objects>
 </document>
