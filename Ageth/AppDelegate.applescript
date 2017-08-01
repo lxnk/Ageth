@@ -17,7 +17,7 @@ script AppDelegate
     
     property theWalletPathWidget : missing value
     
-    property theSyncMode : 2
+    property theSyncMode : "light"
     
     property theWPath : "/Users/sk/Library/Application Support/Ethereum Wallet"
     

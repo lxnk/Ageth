@@ -684,14 +684,14 @@
                 <subviews>
                     <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bqk-jJ-pWs" userLabel="SyncMode Popup Button">
                         <rect key="frame" x="18" y="21" width="121" height="26"/>
-                        <popUpButtonCell key="cell" type="push" title="Full" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" selectedItem="y64-vu-veq" id="JfT-fF-BGs">
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" inset="2" id="JfT-fF-BGs">
                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                             <font key="font" metaFont="menu"/>
                             <menu key="menu" title="Menu Title" id="3d5-y7-LLX">
                                 <items>
-                                    <menuItem title="Full" state="on" id="y64-vu-veq" userLabel="Full"/>
-                                    <menuItem title="Fast" id="GFs-6g-kbN" userLabel="Fast"/>
-                                    <menuItem title="Light" id="ozJ-eP-YBb" userLabel="Light"/>
+                                    <menuItem title="full" id="y64-vu-veq" userLabel="Full"/>
+                                    <menuItem title="fast" id="GFs-6g-kbN" userLabel="Fast"/>
+                                    <menuItem title="light" id="ozJ-eP-YBb" userLabel="Light"/>
                                 </items>
                             </menu>
                             <connections>
@@ -699,7 +699,7 @@
                             </connections>
                         </popUpButtonCell>
                         <connections>
-                            <binding destination="Voe-Tx-rLC" name="selectedIndex" keyPath="theSyncMode" id="Dh2-1N-rOE"/>
+                            <binding destination="Voe-Tx-rLC" name="selectedValue" keyPath="theSyncMode" id="vZc-nJ-Lqf"/>
                         </connections>
                     </popUpButton>
                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yvm-sn-3Lw">
